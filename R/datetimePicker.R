@@ -46,27 +46,30 @@
 #' shinyApp(ui, server)
 #'
 #' }
-datetimePickerInput <- function(inputId, value = NULL, style = NULL) {
-  value <- if(is.null(value)) Sys.time() else as.POSIXct(value)
-  reactR::createReactShinyInput(
-    inputId,
-    "datetimePicker",
-    list(
-      htmltools::htmlDependency(
-        name = "datetimePicker-input",
-        version = "1.0.0",
-        src = "www/datetimePicker",
-        package = "shinyDatetimePickers",
-        script = "datetimePicker.js"
+datetimePickerInput <- function(inputId, label = NULL, value = NULL, style = NULL) {
+  tags$div(
+    class = "form-group shiny-input-container",
+    if (!is.null(label)) tags$label(class = "control-label", id = paste0(inputId, "-label"), label),
+    reactR::createReactShinyInput(
+      inputId,
+      "datetimePicker",
+      list(
+        htmltools::htmlDependency(
+          name = "datetimePicker-input",
+          version = "1.0.0",
+          src = "www/datetimePicker",
+          package = "shinyDatetimePickers",
+          script = "datetimePicker.js"
+        ),
+        cssDependency
       ),
-      cssDependency
-    ),
-    NULL,
-    list(
-      shinyId = inputId,
-      value = datetime2list(value, sec = TRUE)
-    ),
-    container = function(...) htmltools::tags$div(..., style = style)
+      NULL,
+      list(
+        shinyId = inputId,
+        value = if (is.null(value)) NULL else datetime2list(value, sec = TRUE)
+      ),
+      container = function(...) htmltools::tags$div(..., class = "form-control", style = "padding-top:6px; padding-right:12px; padding-bottom:6px; padding-left:12px;background-color:white;")
+    )
   )
 }
 

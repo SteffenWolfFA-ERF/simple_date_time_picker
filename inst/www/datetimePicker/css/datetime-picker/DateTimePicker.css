@@ -1,10 +1,10 @@
 .react-datetime-picker {
   display: inline-flex;
   position: relative;
-  border-radius: 5px;
-  -moz-box-shadow: 0 0 20px 10px rgba(16, 36, 94, 0.2);
+  border-radius: 4px;
+  /*-moz-box-shadow: 0 0 20px 10px rgba(16, 36, 94, 0.2);
   -webkit-box-shadow: 0 0 20px 10px rgba(16, 36, 94, 0.2);
-  box-shadow: 0 0 20px 10px rgba(16, 36, 94, 0.2);
+  box-shadow: 0 0 20px 10px rgba(16, 36, 94, 0.2);*/
 }
 .react-datetime-picker,
 .react-datetime-picker *,

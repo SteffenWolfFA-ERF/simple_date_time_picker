@@ -1,21 +1,13 @@
-Package: shinyDatetimePickers
-Title: Some Datetime Pickers for 'Shiny'
-Version: 1.2.0
+Package: SimpleDateTimePicker
+Title: Simple date and time picker for 'Shiny'
+Version: 1.0.0
 Authors@R: c(
-    person("Stéphane", "Laurent", , "laurent_step@outlook.fr", role = c("aut", "cre")),
-    person("Wojciech", "Maj", , "kontakt@wojtekmaj.pl", role = "cph",
-           comment = "'react-datetime-picker' library (https://github.com/wojtekmaj/react-datetime-picker)"),
-    person("Porinn", role = "cph",
-           comment = "'react-datetime-slider-picker' library (https://github.com/Porinn/react-datetime-slider-picker)"),
-    person("Dmitriy", "Kovalenko", , "dmtr.kovalenko@outlook.com", role = "cph",
-           comment = "'material-ui-pickers' library (https://github.com/mui-org/material-ui-pickers)")
+    person("Steffen", "Wolf", , "Steffen.Wolf@xfab.com", role = c("aut", "cre"))
   )
-Description: Provides three types of datetime pickers for usage in a
-    'Shiny' UI. A datetime picker is an input field for selecting both a
-    date and a time.
+Description: Provides a simple date and time picker for usage in a 'Shiny' UI. A datetime picker is an input field for selecting both a date and a time.
+    Fork of shinyDatetimePickers from Stéphane Laurent and Wojciech Maj (https://github.com/wojtekmaj/react-datetime-picker)
 License: GPL-3
-URL: https://github.com/stla/shinyDatetimePickers
-BugReports: https://github.com/stla/shinyDatetimePickers/issues
+URL: https://github.com/SteffenWolfFA-ERF/simple_date_time_picker
 Imports: 
     htmltools,
     lubridate,

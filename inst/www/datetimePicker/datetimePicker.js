@@ -32647,7 +32647,7 @@ function toDate(argument) {
  * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
- * 
+ *
  */
 
 /*eslint-disable no-self-compare */
@@ -74538,7 +74538,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /**
  * Adds a CSS class to a given element.
- * 
+ *
  * @param element the element
  * @param className the CSS class name
  */
@@ -74562,7 +74562,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /**
  * Checks if a given element has a CSS class.
- * 
+ *
  * @param element the element
  * @param className the CSS class name
  */
@@ -74589,7 +74589,7 @@ function replaceClassName(origClass, classToRemove) {
 }
 /**
  * Removes a CSS class from a given element.
- * 
+ *
  * @param element the element
  * @param className the CSS class name
  */
@@ -78205,7 +78205,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -78219,17 +78219,17 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -78242,7 +78242,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -78254,7 +78254,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -78266,7 +78266,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/harmony module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.hmd = (module) => {
@@ -78281,12 +78281,12 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -78297,7 +78297,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -78306,7 +78306,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -78355,10 +78355,12 @@ __webpack_require__.r(__webpack_exports__);
 class RDPwidget extends React.PureComponent {
   constructor(props) {
     super(props);
-    var v = this.props.value,
-      date = new Date(
-      //Date.UTC(
-      v.date.year, v.date.month - 1, v.date.date, v.time.hour, v.time.minute, v.time.second);
+    var v = this.props.value, date;
+    if (v == null) {
+      date = ""
+    } else {
+      date = new Date(v.date.year, v.date.month - 1, v.date.date, v.time.hour, v.time.minute, v.time.second);
+    }
     this.state = {
       value: date
     };
@@ -78401,7 +78403,7 @@ class RDPwidget extends React.PureComponent {
     return /*#__PURE__*/React.createElement(react_datetime_picker__WEBPACK_IMPORTED_MODULE_5__["default"], {
       onChange: this.onChange,
       value: this.state.value,
-      format: "y-MM-dd hh:mm:ss a",
+      format: "yyyy-MM-dd HH:mm",
       showLeadingZeros: true,
       clearIcon: null,
       calendarIcon: null,
@@ -78410,12 +78412,17 @@ class RDPwidget extends React.PureComponent {
       clearAriaLabel: "Clear value",
       dayAriaLabel: "Day",
       hourAriaLabel: "Hour",
-      maxDetail: "second",
+      maxDetail: "minute",
       minuteAriaLabel: "Minute",
       monthAriaLabel: "Month",
       nativeInputAriaLabel: "Date and time",
       secondAriaLabel: "Second",
-      yearAriaLabel: "Year"
+      yearAriaLabel: "Year",
+      yearPlaceholder: "____",
+      monthPlaceholder: "__",
+      dayPlaceholder: "__",
+      hourPlaceholder: "__",
+      minutePlaceholder: "__"
     });
   }
   // jshint ignore: end
